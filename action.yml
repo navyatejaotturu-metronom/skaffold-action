@@ -1,12 +1,9 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
+name: 'Skaffold Action'
+description: 'Skaffold action'
+author: 'anarcher'
 inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  skaffold:
+    description: "skaffold [flags] [options]"
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.myInput }}
