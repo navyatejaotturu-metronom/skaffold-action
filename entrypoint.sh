@@ -9,6 +9,7 @@ if [ -z "${INPUT_SKAFFOLD}" ]; then
 fi 
 
 if [ -n "${IMAGE_TAG}" ]; then 
+    echo "GITHUB_REF: ${GITHUB_REF}"
     echo "IMAGE_TAG: ${IMAGE_TAG}"
     IMAGE_TAG=$(echo ${IMAGE_TAG} | sed -e "s/refs\/heads\///g")
     IMAGE_TAG=$(echo ${IMAGE_TAG} | sed -e "s/refs\/tags\///g" | sed -e "s/\//-/g") 
