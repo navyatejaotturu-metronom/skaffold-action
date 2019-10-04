@@ -1,6 +1,7 @@
 #!/bin/sh -l
 
 if [ -n "${INPUT_DOCKER_PASSWORD}" ]; then
+    echo "[DOCKER_LOGIN]"
     sh -c "echo ${INPUT_DOCKER_PASSWORD} | docker login -u ${INPUT_DOCKER_USERNAME} --password-stdin ${INPUT_DOCKER_REGISTRY}"
 fi
 
@@ -16,8 +17,10 @@ if [ -n "${IMAGE_TAG}" ]; then
     echo "IMAGE_TAG: ${IMAGE_TAG}"
 fi 
 
+echo "[SKAFFOLD]"
 sh -c "skaffold ${INPUT_SKAFFOLD}"
 
 if [ -n "${INPUT_KUSTOMIZE}" ]; then
+    echo "[KUSTOMIZE]"
     sh -c "kustomize ${INPUT_KUSTOMIZE}"
 fi 
