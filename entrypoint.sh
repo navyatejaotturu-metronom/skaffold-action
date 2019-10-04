@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 if [ -n "${INPUT_DOCKER_PASSWORD}" ]; then
-    sh -c "docker login -u $INPUT_DOCKER_USERNAME -p $INPUT_DOCKER_PASSWORD $INPUT_DOCKER_REGISTRY"
+    sh -c "echo ${INPUT_DOCKER_PASSWORD} | docker login -u ${INPUT_DOCKER_USERNAME} --password-stdin ${INPUT_DOCKER_REGISTRY}"
 fi
 
 if [ -z "${INPUT_SKAFFOLD}" ]; then
