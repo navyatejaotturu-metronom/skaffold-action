@@ -8,4 +8,9 @@ if [ -z "${INPUT_SKAFFOLD}" ]; then
     echo "skaffold args is empty. Please set with.skaffold."
 fi 
 
+if [ -n "${IMAGE_TAG}" ]; then 
+    IMAGE_TAG=$(echo ${IMAGE_TAG} | sed -e "s/refs\/heads\///g")
+    IMAGE_TAG=$(echo ${IMAGE_TAG} | sed -e "s/refs\/tags\///g" | sed -e "s/\//-/g") 
+fi 
+
 sh -c "skaffold ${INPUT_SKAFFOLD}"
