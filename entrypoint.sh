@@ -17,3 +17,7 @@ if [ -n "${IMAGE_TAG}" ]; then
 fi 
 
 sh -c "skaffold ${INPUT_SKAFFOLD}"
+
+if [ -n "${INPUT_KUSTOMIZE}" ]; then
+    sh -c "kustomize ${INPUT_KUSTOMIZE}"
+fi 
