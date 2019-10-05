@@ -22,5 +22,9 @@ sh -c "skaffold ${INPUT_SKAFFOLD}"
 
 if [ -n "${INPUT_KUSTOMIZE}" ]; then
     echo "[KUSTOMIZE]"
-    sh -c "kustomize ${INPUT_KUSTOMIZE}"
+    if [ -n "${INPUT_KUSTOMIZE_PATH}" ]; then 
+        sh -c "cd ${INPUT_KUSTOMIZE_PATH}; kustomize ${INPUT_KUSTOMIZE}"
+    else
+        sh -c "kustomize ${INPUT_KUSTOMIZE}"
+    fi
 fi 
