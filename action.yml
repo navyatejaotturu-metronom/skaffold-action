@@ -3,7 +3,13 @@ description: 'Skaffold action'
 author: 'anarcher'
 inputs: 
   skaffold:
-    description: "skaffold [flags] [options]"
+    description: "Skaffold CLI: [flags] [options]"
+  docker_username:
+    description: "Username used to login docker registry"
+  docker_password:
+    description: "Password used to login docker registry"
+  kustomize:
+    description: "Kustomize CLI: [command] [options]"
 runs:
   using: 'docker'
   image: 'Dockerfile'
