@@ -1,5 +1,15 @@
-# Container Action Template
+# Skaffold action
 
-To get started, click the `Use this template` button on this repository [which will create a new repository based on this template](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/).
+```
+   - name: skaffold build & publish 
+      uses: anarcher/skaffold-action@v1
+      with:
+        skaffold: build 
+        kustomize: edit set image hello-world:${IMAGE_TAG}
+        kustomize_path: ./k8s/prod/
+        docker_username: ${{ secrets.DOCKER_GITHUB_USERNAME }}
+        docker_password: ${{ secrets.DOCKER_GITHUB_PASSWORD }}
+      env:
+        IMAGE_TAG: ${{ github.ref }}
 
-For info on how to build your first Container action, see the [toolkit docs folder](https://github.com/actions/toolkit/blob/master/docs/container-action.md).
+```
