@@ -3,8 +3,9 @@
 function checkExitStatus() {
   if [ "$1" -gt "0" ]; then
     exit $1
-  if
+  fi
 }
+
 if [ -n "${INPUT_DOCKER_PASSWORD}" ]; then
     echo "[DOCKER_LOGIN]"
     sh -c "echo ${INPUT_DOCKER_PASSWORD} | docker login -u ${INPUT_DOCKER_USERNAME} --password-stdin ${INPUT_DOCKER_REGISTRY}"
