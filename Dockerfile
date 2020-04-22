@@ -1,4 +1,4 @@
-FROM anarcher/skaffold:v1.8.0
+FROM gcr.io/k8s-skaffold/skaffold:v1.8.0
 
 COPY LICENSE README.md /
 
