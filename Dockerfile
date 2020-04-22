@@ -1,4 +1,4 @@
-FROM anarcher/skaffold:v0.39.0
+FROM anarcher/skaffold:v1.8.0
 
 COPY LICENSE README.md /
 
