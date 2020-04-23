@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 function checkExitStatus() {
   if [ "$1" -gt "0" ]; then
